@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>wordpress theme three</title>
+  </head>
+  <style>
+    .container{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+ul li{
+  list-style: none;
+}
+
+/* news field */
+
+.ticker {
+    margin: 0 auto;
+    width: 450px;
+    text-align: left;
+    border-bottom: #333 1px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticker ul {
+    width: 100%;
+    position: relative;
+}
+
+.ticker ul li {
+    width: 100%;
+    display: none;
+}
+
+
+/* scroll animation */
+.scroll_bar {
+  position: absolute;
+  left: 26px;
+  bottom: 26px;
+  margin-left: -1px;
+  width: 2px;
+  height: 70px;
+  /*   background-color: #fff;;*/
+  border-radius: 0;
+  text-align: center;
+  display: inline-block;
+}
+.scroll_bar:after {
+  content: "";
+  display: block;
+  height: 70px;
+  width: 2px;
+  position: absolute;
+  background: #333;
+  opacity: 0.5;
+}
+@media screen and (max-width: 899px) {
+  .scroll_bar {
+    bottom: 10px;
+  }
+  .scroll_bar.addnews {
+    bottom: 95px;
+  }
+}
+@media screen and (min-width: 900px), print {
+  .scroll_bar {
+    top: -94px;
+  }
+}
+
+.scrollBox {
+  position: absolute;
+  left: 50%;
+  bottom: 9.4%;
+  width: 67px;
+  height: 90px;
+  margin-left: -33px;
+}
+
+.scroll {
+  position: relative;
+  left: 0px;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  animation-name: scroll;
+  animation-duration: 5s;
+  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+  animation-iteration-count: infinite;
+}
+.scroll:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  margin: auto 0;
+  background: #333;
+  transform: rotate(-135deg);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0.2;
+  }
+  20% {
+    transform: translateX(0px) translateY(10px);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(0px) translateY(80px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px) translateY(80px);
+    opacity: 0.2;
+  }
+}
+/* page trangition */
+.pjax-trans {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #333), to(#333));
+    background-image: linear-gradient(0deg, #333 0, #333 100%);
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+
+    will-change: transform;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    position: relative;
+    font-size: 13px;
+}
+
+.pagination span, .pagination a {
+    display: block;
+    width: auto;
+    margin: 4px;
+    padding: 8px;
+    border: 1px solid #000;
+    background-color: #fff;
+    text-decoration: none;
+    text-align: center;
+    line-height: 16px;
+}
+
+/* ãƒšãƒ¼ã‚¸ç•ªå· */
+.pagination .pager{
+    width: 32px;
+}
+
+/* ãƒ›ãƒãƒ¼æ™‚ & ç¾åœ¨ã®ãƒšãƒ¼ã‚¸ */
+.pagination a:hover,
+.pagination .current  {
+    color: #fff;
+    border-color: #000;
+    background-color: #000;
+}
+
+/* å‰ã¸ */
+.pagination a.prev {
+    margin-right: 16px;
+}
+/* æ¬¡ã¸ */
+.pagination a.next {
+    margin-left: 16px;
+}
+/* æœ€åˆã¸ */
+.pagination a.first {}
+/* æœ€å¾Œã¸ */
+.pagination a.last {}
+
+/* Page x / y */
+.pagination span.page_num {
+    display: none;
+}
+
+
+/* slide show */
+.slide {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+
+@keyframes slideshow{
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  28%{
+    opacity: 1
+  }
+  38%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+
+}
+
+.slide img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation :slideshow 24s linear infinite;
+}
+
+.slide img:nth-child(2){
+  animation-delay: 8s;
+}
+
+.slide img:last-child{
+  animation-delay: 16s;
+}
+
+
+/* image fade */
+.fadein{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s;
+}
+
+
+/* header */
+a{
+color: #999;
+transition: .5s;
+}
+
+a:hover{
+opacity: 0.8;
+}
+
+
+.site-header{
+	position: fixed;
+	top: 0;
+	transition: .5s;
+	z-index: 999;
+  width: 100%;
+}
+
+.site-header.hide{
+	transform: translateY(-100%);
+}
+
+.moimg1 {
+	overflow: hidden;
+	width: auto;
+	height: auto;
+}
+.moimg1 img {
+        width: auto;
+	display: block;
+	transition: 0.3s;
+}
+.moimg1 img:hover {
+	transform: scale(1.1, 1.1);
+}
+
+  </style>
+<body>
+<header class="site-header">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <a class="navbar-brand" href="/wordpress">Navbar</a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+</nav>
+</header>
+
+<div class="slide">
+   <img src="images/one.png" alt="" width="100%" height="100%"/>
+   <img src="images/two.png" alt="" width="100%" height="100%"/>
+   <img src="images/three.png" alt="" width="100%" height="100%"/>
+   <img src="images/four.png" alt="" width="100%" height="100%"/>
+ </div>
+  <div class="container">
+    
+  <div class="text-center">
+    <img class="d-block mx-auto mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h2>Hello world!</h2>
+    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+  </div>
+  <div class="row">
+  <div class="col-md-4 order-md-2 mb-4">
+  <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-muted">Categories</span>
+    <span class="badge badge-secondary badge-pill">3</span>
+  </h4>
+  <ul class="list-group mb-3">
+    	<li class="cat-item cat-item-37"><a href="#">Category</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="#">Category</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="#">Category</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="#">Category</a>
+</li>
+  </ul>
+  <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-muted">MonthArchive</span>
+    <span class="badge badge-secondary badge-pill">3</span>
+  </h4>
+  <ul class="list-group mb-3">
+    	<li><a href='#'>2020年7月</a></li>
+  </ul>
+  <a class="twitter-timeline" data-width="100%" data-height="500" href="https://twitter.com/tk_takeru_?ref_src=twsrc%5Etfw">Tweets by tk_takeru_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Billing address</h4>
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Username</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" id="username" placeholder="Username" required>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your username is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email <span class="text-muted">(Optional)</span></label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+          <div class="invalid-feedback">
+            Please enter your shipping address.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">Country</label>
+            <select class="custom-select d-block w-100" id="country" required>
+              <option value="">Choose...</option>
+              <option>United States</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid country.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">State</label>
+            <select class="custom-select d-block w-100" id="state" required>
+              <option value="">Choose...</option>
+              <option>California</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid state.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <div class="invalid-feedback">
+              Zip code required.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="same-address">
+          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="save-info">
+          <label class="custom-control-label" for="save-info">Save this information for next time</label>
+        </div>
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Payment</h4>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+            <label class="custom-control-label" for="credit">Credit card</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="debit">Debit card</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="paypal">PayPal</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cc-name">Name on card</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <small class="text-muted">Full name as displayed on card</small>
+            <div class="invalid-feedback">
+              Name on card is required
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cc-number">Credit card number</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <div class="invalid-feedback">
+              Credit card number is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cc-expiration">Expiration</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+            <div class="invalid-feedback">
+              Expiration date required
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cc-cvv">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+            <div class="invalid-feedback">
+              Security code required
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="fadein">
+  <h1>Archive</h1>
+  <hr>
+                    <h2>
+              2020-7-26              <a href="#">post12<br>
+                <div class="moimg1">
+                <a href="#" title="post12"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-26              <a href="#">post11<br>
+                <div class="moimg1">
+                <a href="#" title="post11"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-26              <a href="#">post10<br>
+                <div class="moimg1">
+                <a href="#" title="post10"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-26              <a href="#">post09<br>
+                <div class="moimg1">
+                <a href="#" title="post09"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-26              <a href="#">post08<br>
+                <div class="moimg1">
+                <a href="#" title="post08"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-26              <a href="#">post7<br>
+                <div class="moimg1">
+                <a href="#" title="post7"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-25              <a href="#">post06<br>
+                <div class="moimg1">
+                <a href="#" title="post06"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-25              <a href="#">post05<br>
+                <div class="moimg1">
+                <a href="#" title="post05"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-25              <a href="#">post04<br>
+                <div class="moimg1">
+                <a href="#" title="post04"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+              2020-7-25              <a href="#">post03<br>
+                <div class="moimg1">
+                <a href="#" title="post03"><img width="100%"height="auto" src="images/phone.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="images/phone.png 300w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan-768x576.jpg 768w, http://localhost/wordpress/wp-content/uploads/2020/07/rottan.jpg 966w" sizes="(max-width: 300px) 100vw, 300px" /></a>                </div></a>
+            </h2>
+            <hr>
+                    <h2>
+                            <a href=""><br>
+                <div class="moimg1">
+                                </div></a>
+            </h2>
+            <hr>
+              </div>
+</div>
+<!-- 下記が追記するコード -->
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017-2020 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+  <script type="text/javascript">
+    jQuery(function($){
+
+    $("a").on('click',function(){
+      $(".pjax-trans").animate({left:"+=100%"},'fast');
+    });
+    $(".moimg1").hover(function(){
+      $(this).fadeTo("1000",0.3);
+    },function(){
+      $(this).fadeTo("1000",1.0);
+    });
+    jQuery(function($){
+    /******************************************
+    init
+    ******************************************/
+    var startPos = 0,winScrollTop = 0;
+
+    $('.img-container').waypoint(function(direction){
+    	var activePoint = $(this.element);
+
+    	if (direction === 'down') {//scroll down
+    		activePoint.addClass('active');
+    	}
+    },{offset : '70%'});
+
+    $('.text-container').waypoint(function(direction){
+    	var activePoint = $(this.element);
+
+    	if (direction === 'down') {//scroll down
+    		activePoint.addClass('active');
+    	}
+    },{offset : '70%'});
+
+    /******************************************
+    window scroll
+    ******************************************/
+    $(window).on('scroll',function(){
+    	winScrollTop = $(this).scrollTop();
+    	if (winScrollTop >= startPos) {
+    		if(winScrollTop >= 200){
+    			$('.site-header').addClass('hide');
+    		}
+    	} else {
+    		$('.site-header').removeClass('hide');
+    	}
+    	startPos = winScrollTop;
+    });
+    });
+
+    //fuwa
+  $(window).scroll(function (){
+      $('.fadein').each(function(){
+          var targetElement = $(this).offset().top;
+          var scroll = $(window).scrollTop();
+          var windowHeight = $(window).height();
+          if (scroll > targetElement - windowHeight + 200){
+              $(this).css('opacity','1');
+              $(this).css('transform','translateY(0)');
+          }
+      });
+  });
+});
+
+  </script>
+  </body>
+  </html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+    <title>CardShop</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+
+    <style media="screen">
+      ul{
+        margin-bottom:0;
+      }
+      .corner_box02 {
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border: 2px solid rgba(0,0,0,.125);
+        filter: brightness(200%);
+      }
+      header{
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+
+      .parenthesis {
+        position: relative;
+        width: 100%;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 2px solid #eeeeee;
+        margin: 10px;
+      }
+      footer{
+        color: #fff;
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+      footer a{
+        color: #fff;
+      }
+      footer hr{
+        background: #fff;
+      }
+      .trapezoid {
+        margin-bottom: -100px;
+        width: 300px;
+        border-top: 100px solid #eeeeee;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 0;
+      }
+      .tran{
+        width: 120px;
+        border-bottom: 40px solid #eeeeee;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 40px;
+      }
+      nav{
+        padding: 0px !important;
+      }
+      .ma{
+        font-size:40px;
+        color: #fff;
+      }
+
+      .hr{
+        margin-top: -10px;
+        background:#fff;
+        margin-bottom: 10px;
+      }
+      .container-fluid{
+        background: #eeeeee;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+      .go{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .ing{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .search{
+        padding-top: 10px;
+      }
+      .col-sm-3 ,.col-sm-7{
+        padding: 0;
+      }
+
+      .no{
+        border: 0px;
+      }
+      body{
+        font-family:monospace;
+      }
+      .form-control{
+        height: 100px;
+      }
+      .cate,.state,.sb{
+        border-radius: 10px;
+      }
+    </style>
+    <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light ing">
+        <a class="nav-link ma" href="#"><i>HOME</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="gaiyou.html"><img style="filter: brightness(60%)" src="img/p001.png" width="150px"/></a>
+
+            </li>
+    <li class="nav-item">
+      <a class="nav-link" href="iken.html"><img style="filter: brightness(60%)" src="img/p002.png" width="150px"/></a>
+    </li>
+
+    </ul>
+    <ul class="ml-auto navbar-nav justify-content-center align-items-center">
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/hs.png" width="300px"/>
+      </a>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/p003.png" width="150px"/></a>
+    </li>
+    <li class="nav-item dropdown mr-2">
+      <a class="nav-link" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img style="filter: brightness(60%)" src="img/p004.png" width="150px"/>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">遊戯王</a>
+        <a class="dropdown-item" href="#">デュエルマスターズ</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">ヴァンガード</a>
+      </div>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="kaitori.html"><img style="filter: brightness(60%)" src="img/p005.png" width="150px"/></a>
+    </li>
+
+    </ul>
+  </div>
+</nav>
+
+    </header>
+    <hr class="hr">
+
+<div class="container-fluid">
+  <div class="row ml-auto mr-auto justify-content-between align-items-center search text-center">
+    <div class="col-sm-8">
+      <input type="search" class="form-control" name="" value="">
+    </div>
+    <div class="col-sm-4">
+      <button type="button" name="button" class="no">
+        <img style="filter: brightness(200%)" src="img/search.png" alt="" width="120px" class="shadow sb">
+      </button>
+      <a href="#">
+      <img style="filter: brightness(200%)" src="img/cate.png" alt="" width="120px" class="shadow cate">
+    </a>
+    <a href="#">
+      <img style="filter: brightness(200%)" src="img/state.png" alt="" width="120px" class="shadow state">
+    </a>
+    </div>
+  </div>
+  <div class="row">
+
+  <div class="col-sm-3 side mt-5">
+      <img style="filter: brightness(200%)" src="img/van.jpg" class="w-100" height="242px"alt="">
+    <ul class="list-unstyled mt-2">
+      <li class="shadow">
+        <img style="filter: brightness(200%)" src="img/sai.png" class="w-100" alt="">
+      </li>
+    </ul>
+    <ul class="list-unstyled mt-2">
+      <li class="shadow">
+        <img style="filter: brightness(200%)" src="img/si.png" class="w-100" alt="">
+      </li>
+    </ul>
+<ul class="list-group list-unstyled mt-5">
+  <li class="shadow">
+    <img style="filter: brightness(200%)" src="img/sr.png" alt="" class="w-100">
+  </li>
+  <li class="list-group-item shadow"><a href="#">★1位【遊戯王】...</a></li>
+  <li class="list-group-item shadow"><a href="#">★2位【黒の魔術師】...</a></li>
+  <li class="list-group-item shadow"><a href="#">★3位【青眼の白龍】...</a></li>
+  <li class="list-group-item shadow">
+    <a href="rank.html" class="btn btn-outline-danger">順位をもっと見る</a>
+  </li>
+</ul>
+<ul class="list-group list-unstyled mt-5">
+<li class="shadow">
+  <img style="filter: brightness(200%)" src="img/pr.png" alt="" class="w-100">
+</li>
+<li class="list-group-item shadow">1位　3000Pt<br>○○さん</li>
+<li class="list-group-item shadow">2位　2950Pt<br>○○さん</li>
+<li class="list-group-item shadow">3位　2800Pt<br>○○さん</li>
+<li class="list-group-item shadow">4位　2500Pt<br>○○さん</li>
+<li class="list-group-item shadow">5位　150Pt<br>○○さん</li>
+<li class="list-group-item shadow">
+  <a href="grireki.html" class="btn btn-outline-warning">ガチャ履歴を見る</a>
+  <a href="gatha.html" class="btn btn-outline-warning">Pガチャって？</a>
+</li>
+</ul>
+<ul class="list-group list-unstyled mt-5">
+<li class="shadow">
+  <img style="filter: brightness(200%)" src="img/sc.png" alt="" class="w-100">
+</li>
+<li class="list-group-item shadow">【質問・報告】<br>...</li>
+<li class="list-group-item shadow">【みんなのコメント】<br>...</li>
+<li class="list-group-item shadow">【みんなのコメント】<br>...</li>
+<li class="list-group-item shadow">
+  <a href="comment.html" class="btn btn-outline-success">最新のコメント一覧へ</a>
+</li>
+</ul>
+</div>
+  <div class="col-sm-9 main mt-3">
+    <div class="jumbotron bg-white corner_box02 mt-2">
+
+    <div class="row justify-content-center">
+      <div class="col-sm-5 parenthesis">
+        <img style="filter: brightness(60%)" src="img/91vnLDNLjvR3e2Y1597753598_1597754088.png" class="d-block w-100 h-100" alt="...">
+      </div>
+      <div class="col-sm-5 parenthesis">
+
+        <img style="filter: brightness(60%)" src="img/91vnLDNLjvR3e2Y1597753598_1597756042.png" class="d-block w-100 h-100" alt="...">
+      </div>
+      <div class="col-sm-5 parenthesis">
+        <img style="filter: brightness(60%)" src="img/91vnLDNLjvR3e2Y1597753598_1597754877.png" class="d-block w-100 h-100" alt="...">
+      </div>
+      <div class="col-sm-5 parenthesis">
+        <img style="filter: brightness(60%)" src="img/91vnLDNLjvR3e2Y1597753598_1597756422.png" class="d-block w-100 h-100" alt="...">
+      </div>
+    </div>
+
+    </div>
+    <div class="ml-auto mr-auto text-center justify-content-center">
+      <a href="#" >
+        <img src="img/regi.png" class="w-50" alt="">
+      </a>
+    </div>
+
+    <div>
+      <div class="card mt-2 shadow">
+        <div class="card-header">
+          <strong>News</strong>
+        </div>
+        <div class="col mt-2">
+          <h1>新着情報</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-sm-12">
+          <hr>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+            <li>2020/08/10  <a class="ml-5" href="#">[Blog] ...</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+<div class="card mt-2 shadow">
+  <div class="card-header">
+    <strong>カード一覧</strong>
+  </div>
+  <div class="card-body">
+    <ul class="list-inline ml-auto mr-auto justify-content-center row mt-2">
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/51xqJj4X+IL._AC_.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/02531.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/134001.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/222573.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/20190926_be254a.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/20190728_355060.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/86750619.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/20170730131300.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/51mQVRNLYiL._AC_SY450_.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+      <li class="list-inline-item col-sm-2"><a href="#"><img src="img/515c+FdGHZL._AC_.jpg" class="d-block w-100" alt="..."><br>990円～</a></li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+  <div class="ml-auto mr-auto text-center">
+    <a href="#">▲TOP</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="col-sm-10 text-center ml-auto mr-auto justify-content-center ">
+      <ul class="list-inline ml-auto mr-auto text-center">
+        <li class="list-inline-item">
+          <a href="index.html">トップページ</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="q_a.html">よくある質問</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="iken.html">質問・ご意見板</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="deck.html">デッキ相談室</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="kaitori.html">ネット買取</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="login.html">ログイン</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="regi.html">新規会員登録</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="gaiyou.html">会社情報</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="privacy.html">プライバシーポリシー</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="tokutei.html">特定商取引に基づく表記</a>
+        </li>
+      </ul>
+      <hr>
+  <ul class="list-inline ml-auto mr-auto text-center">
+    <li class="list-inline-item">
+      <a class="nav-link" href="#"><img src="img/crec.png" width="100%" /></a>
+    </li>
+    <li class="list-inline-item">
+        このサイトはSSL暗号化によってお客様情報は保護されています。
+      </li>
+  </ul>
+  <hr>
+<p style="margin-bottom:0">CopyrightⒸAll Rights Reserved</p>
+  </div>
+  </div>
+</footer>
+  </body>
+</html>

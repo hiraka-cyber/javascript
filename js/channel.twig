@@ -1,0 +1,110 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'channel' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>{{ 'マイページ'|trans }}/{{ 'マイチャンネル'|trans }}</h1>
+            </div>
+        </div>
+        <div class="ec-navlistRole">
+            <ul class="ec-navlistRole__navlist">
+            <li class="ec-navlistRole__item {% if mypageno|default('') == 'channel' %}active{% endif %}">
+                <a href="{{ url('mypage_channel') }}">{{ 'マイチャンネル'|trans }}</a>
+            </li>
+                <li class="ec-navlistRole__item {% if mypageno|default('') == 'index' %}active{% endif %}">
+                    <a href="{{ url('mypage') }}">{{ 'ご注文履歴'|trans }}</a>
+                </li>
+                {% if BaseInfo.option_favorite_product %}
+                    <li class="ec-navlistRole__item {% if mypageno|default('') == 'favorite' %}active{% endif %}">
+                        <a href="{{ url('mypage_favorite') }}">{{ 'お気に入り一覧'|trans }}</a>
+                    </li>
+                {% endif %}
+                <li class="ec-navlistRole__item {% if mypageno|default('') == 'change' %}active{% endif %}">
+                    <a href="{{ url('mypage_change') }}">{{ '会員情報編集'|trans }}</a>
+                </li>
+                <li class="ec-navlistRole__item {% if mypageno|default('') == 'delivery' %}active{% endif %}">
+                    <a href="{{ url('mypage_delivery') }}">{{ 'お届け先一覧'|trans }}</a>
+                </li>
+                <li class="ec-navlistRole__item {% if mypageno|default('') == 'withdraw' %}active{% endif %}">
+                    <a href="{{ url('mypage_withdraw') }}">{{ '退会手続き'|trans }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ec-mypageRole">
+            {% if pagination.totalItemCount > 0 %}
+                {% for Order in pagination %}
+                    <div class="ec-historyRole">
+                        <div class="ec-historyRole__contents">
+                        <div class="ec-historyRole__header">
+                        {% for OrderItem in Order.MergedProductOrderItems %}
+                            <div class="ec-historyListHeader">
+                                <dl class="ec-definitions">
+                                {% if OrderItem.Product is null %}
+                                    <img src="{{ asset(''|no_image_product, 'save_image') }}"/>
+                                {% else %}
+                                    <img src="{{ asset(OrderItem.Product.MainListImage|no_image_product, 'save_image') }}">
+                                {% endif %}
+                                </dl>
+                                {% if (BaseInfo.option_mypage_order_status_display) %}
+                                    <dl class="ec-definitions">
+                                    <p class="ec-historyRole__detailTitle">{{ OrderItem.product_name }}</p>
+                                    {% if OrderItem.class_category_name1 is not empty %}
+                                        {{ OrderItem.class_category_name1 }}
+                                    {% endif %}
+                                    {% if OrderItem.class_category_name1 is not empty %}
+                                        / {{ OrderItem.class_category_name2 }}
+                                    {% endif %}
+                                    <p class="ec-historyRole__detailPrice">{{ OrderItem.price_inc_tax|price }}
+                                        × {{ OrderItem.quantity }}</p>
+                                    </dl>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                            <div class="ec-historyRole__header">
+                                <div class="ec-historyListHeader">
+                                    <p class="ec-historyListHeader__date">{{ Order.order_date|date_sec }}</p>
+                                    <dl class="ec-definitions">
+                                        <dt>{{ 'ご注文番号'|trans }}</dt>
+                                        <dd>{{ Order.order_no }}</dd>
+                                    </dl>
+                                    {% if (BaseInfo.option_mypage_order_status_display) %}
+                                        <dl class="ec-definitions">
+                                            <dt>{{ 'ご注文状況'|trans }}</dt>
+                                            <dd>{{ Order.CustomerOrderStatus }}</dd>
+                                        </dl>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                            <p class="ec-historyListHeader__action"><a class="ec-inlineBtn"
+                                                                       href="{{ url('mypage_history', {'order_no': Order.order_no}) }}">{{ '詳細を見る'|trans }}</a>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="ec-pagerRole">
+                    {% include "pager.twig" with {'pages': pagination.paginationData} %}
+                </div>
+            {% else %}
+                <p class="ec-para-normal">{{ 'ご注文履歴はありません。'|trans }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javademo</title>
+    <link rel="stylesheet" href="css/javademo.css">
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Merienda');
+
+body {
+  font-family: 'Merienda', cursive;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.box {
+  padding: 20px;
+  text-align: center;
+  z-index:1;
+}
+a {
+  color: #0bd;
+}
+  </style>
+  <body>
+    <div class="container">
+  <div class="box">
+    <h1>Raindrops.js Demo</h1>
+    <p><a href="https://daniellaharel.com/raindrops/">Website</a></p>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/raindrops.js"></script>
+<script type="text/javascript">
+  jQuery(".container").raindrops({
+  color: "#0bd",
+  canvasHeight: 250
+});
+</script>
+</body>
+</html>

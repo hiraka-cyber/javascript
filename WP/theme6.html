@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>wordpress theme four</title>
+  </head>
+  <style>
+    footer{
+      background: #212529;
+      color: #fff;
+    }
+
+    footer p{
+      padding: 20px 0 20px 0;
+      margin-bottom: 0;
+    }
+
+    .white{
+      background:#fff;
+      padding: 20px;
+    }
+
+    body{
+      background:#EEEEEE;
+    }
+
+    .nav-link{
+      display: flex;
+      justify-content: space-between;
+    }
+    .relative{
+      position: relative;
+    }
+
+    .ab{
+      position: absolute;
+      z-index:-9999;
+    }
+
+    .container-fluid{
+      padding: 0px !important;
+    }
+
+    .z{
+      border-radius: 50%;
+      z-index:999;
+    }
+
+    .num{
+      color: #fff;
+    }
+
+    .absolute{
+      margin-top: -100px;
+    }
+
+    .nav-item{
+      padding: 0 50px 0 50px;
+    }
+
+  </style>
+  <body>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+    <ul class="navbar-nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    </header>
+
+    <div class="container-fluid">
+          <div class="relative">
+            <img class="ab" src="images/back.png" alt="" width="100%">
+          </div>
+      <div class="col-sm-12 text-center">
+        <img class="z mt-5" src="images/icon.png" alt="" width="150px" height="150px">
+        <h1 class="num"><i>Hello World</i></h1>
+        <span class="num">text * text + text</span>
+        <h2 class="num"><i>Welcome to, my site.</i></h2>
+      </div>
+      <div class="col-sm-10 mr-auto ml-auto text-center white mt-5">
+        <h4><i>Hello</i></h4>
+        <hr>
+                <i>Hello.World.+.?</i>
+        <div class="row mt-4">
+          <div class="col-sm-6 text-right">
+            <img src="images/gol.png" alt="" width="100%" height="auto">
+            <a class="btn btn-outline-light absolute mr-3" href="#">Contact</a>
+          </div>
+          <div class="col-sm-6 text-left">
+            <img src="images/go.png" alt="" width="100%" height="auto">
+            <a class="btn btn-outline-light absolute ml-3" href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="col-sm-10">
+          <p>(c) 2020 by Hello world</p>
+        </div>
+      </div>
+    </footer>

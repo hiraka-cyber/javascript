@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+    <title>CardShop</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+
+    <style media="screen">
+      ul{
+        margin-bottom:0;
+      }
+      .corner_box02 {
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border: 2px solid rgba(0,0,0,.125);
+        filter: brightness(200%);
+      }
+      header{
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+
+      .parenthesis {
+        position: relative;
+        width: 100%;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 2px solid #eeeeee;
+        margin: 10px;
+      }
+      footer{
+        color: #fff;
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+      footer a{
+        color: #fff;
+      }
+      footer hr{
+        background: #fff;
+      }
+      .trapezoid {
+        margin-bottom: -100px;
+        width: 300px;
+        border-top: 100px solid #eeeeee;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 0;
+      }
+      .tran{
+        width: 120px;
+        border-bottom: 40px solid #eeeeee;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 40px;
+      }
+      nav{
+        padding: 0px !important;
+      }
+      .ma{
+        font-size:40px;
+        color: #fff;
+      }
+
+      .hr{
+        margin-top: -10px;
+        background:#fff;
+        margin-bottom: 10px;
+      }
+      .container-fluid{
+        background: #eeeeee;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+      .go{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .ing{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .search{
+        padding-top: 10px;
+      }
+      .col-sm-3 ,.col-sm-7{
+        padding: 0;
+      }
+
+      .no{
+        border: 0px;
+      }
+      body{
+        font-family:monospace;
+      }
+      .form-control{
+        height: 100px;
+      }
+      .cate,.state,.sb{
+        border-radius: 10px;
+      }
+      th,td{
+        border: 1px solid black;
+        padding: 10px;
+      }
+      .wrapper{
+        overflow-y: scroll;
+        height: 200px;
+      width: 500px;
+      }
+      th{
+        background:#eeeeee;
+      }
+    </style>
+    <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light ing">
+        <a class="nav-link ma" href="#"><i>HOME</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="gaiyou.html"><img style="filter: brightness(60%)" src="img/p001.png" width="150px"/></a>
+
+            </li>
+    <li class="nav-item">
+      <a class="nav-link" href="iken.html"><img style="filter: brightness(60%)" src="img/p002.png" width="150px"/></a>
+    </li>
+
+    </ul>
+    <ul class="ml-auto navbar-nav justify-content-center align-items-center">
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/hs.png" width="300px"/>
+      </a>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/p003.png" width="150px"/></a>
+    </li>
+    <li class="nav-item dropdown mr-2">
+      <a class="nav-link" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img style="filter: brightness(60%)" src="img/p004.png" width="150px"/>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">遊戯王</a>
+        <a class="dropdown-item" href="#">デュエルマスターズ</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">ヴァンガード</a>
+      </div>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="kaitori.html"><img style="filter: brightness(60%)" src="img/p005.png" width="150px"/></a>
+    </li>
+
+    </ul>
+  </div>
+</nav>
+
+    </header>
+    <hr class="hr">
+
+<div class="container-fluid">
+  <div class="row ml-auto mr-auto justify-content-between align-items-center search text-center">
+    <div class="col-sm-8">
+      <input type="search" class="form-control" name="" value="">
+    </div>
+    <div class="col-sm-4">
+      <button type="button" name="button" class="no">
+        <img style="filter: brightness(200%)" src="img/search.png" alt="" width="120px" class="shadow sb">
+      </button>
+      <a href="#">
+      <img style="filter: brightness(200%)" src="img/cate.png" alt="" width="120px" class="shadow cate">
+    </a>
+    <a href="#">
+      <img style="filter: brightness(200%)" src="img/state.png" alt="" width="120px" class="shadow state">
+    </a>
+    </div>
+  </div>
+  <div class="row">
+
+  <div class="col-sm-3 side mt-5">
+      <img style="filter: brightness(200%)" src="img/van.jpg" class="w-100" height="242px"alt="">
+    <ul class="list-unstyled mt-2">
+      <li class="shadow">
+        <img style="filter: brightness(200%)" src="img/sai.png" class="w-100" alt="">
+      </li>
+    </ul>
+    <ul class="list-unstyled mt-2">
+      <li class="shadow">
+        <img style="filter: brightness(200%)" src="img/si.png" class="w-100" alt="">
+      </li>
+    </ul>
+<ul class="list-group list-unstyled mt-5">
+  <li class="shadow">
+    <img style="filter: brightness(200%)" src="img/sr.png" alt="" class="w-100">
+  </li>
+  <li class="list-group-item shadow"><a href="#">★1位【遊戯王】...</a></li>
+  <li class="list-group-item shadow"><a href="#">★2位【黒の魔術師】...</a></li>
+  <li class="list-group-item shadow"><a href="#">★3位【青眼の白龍】...</a></li>
+  <li class="list-group-item shadow">
+    <button type="button" class="btn btn-outline-danger" name="button">順位をもっと見る</button>
+  </li>
+</ul>
+<ul class="list-group list-unstyled mt-5">
+<li class="shadow">
+  <img style="filter: brightness(200%)" src="img/pr.png" alt="" class="w-100">
+</li>
+<li class="list-group-item shadow">1位　3000Pt<br>○○さん</li>
+<li class="list-group-item shadow">2位　2950Pt<br>○○さん</li>
+<li class="list-group-item shadow">3位　2800Pt<br>○○さん</li>
+<li class="list-group-item shadow">4位　2500Pt<br>○○さん</li>
+<li class="list-group-item shadow">5位　150Pt<br>○○さん</li>
+<li class="list-group-item shadow">
+  <button type="button" class="btn btn-outline-warning" name="button">ガチャ履歴を見る</button>
+  <button type="button" class="btn btn-outline-warning" name="button">Pガチャって？</button>
+</li>
+</ul>
+<ul class="list-group list-unstyled mt-5">
+<li class="shadow">
+  <img style="filter: brightness(200%)" src="img/sc.png" alt="" class="w-100">
+</li>
+<li class="list-group-item shadow">【質問・報告】<br>...</li>
+<li class="list-group-item shadow">【みんなのコメント】<br>...</li>
+<li class="list-group-item shadow">【みんなのコメント】<br>...</li>
+<li class="list-group-item shadow">
+  <button type="button" class="btn btn-outline-success" name="button">最新のコメント一覧へ</button>
+</li>
+</ul>
+</div>
+  <div class="col-sm-9 main mt-3">
+    <div class="card mt-2 shadow">
+      <div class="card-header">
+        <h1>新規会員登録</h1>
+      </div>
+      </div>
+    <div class="card mt-2">
+      <div class="card-header">
+        会員登録がお済でない方
+      </div>
+      <div class="card-body">
+        会員登録をすると3つの特典が付いてきます！！...<br>
+      </div>
+    </div>
+    <div class="card mt-2">
+      <div class="card-header">
+        会員登録
+      </div>
+      <div class="card-body">
+        必要事項をご記入し、「内容確認」ボタンをクリックください。<br>*印の項目は入力必須です。<br>
+        <table>
+          <tbody>
+            <tr>
+              <th>ハンドルネーム *</th>
+              <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <th>氏名 *</th>
+              <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <th>メールアドレス *</th>
+              <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <th>パスワード *</th>
+              <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <th>会員・ポイント規約</th>
+              <td>下記の規約をお読みいただき、同意の上で登録をお願いします。
+                <div class="wrapper">
+                  <div class="contents">
+                    利用規約
+この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
+
+第1条（適用）
+本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
+当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。
+本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。
+第2条（利用登録）
+本サービスにおいては，登録希望者が本規約に同意の上，当社の定める方法によって利用登録を申請し，当社がこれを承認することによって，利用登録が完了するものとします。
+当社は，利用登録の申請者に以下の事由があると判断した場合，利用登録の申請を承認しないことがあり，その理由については一切の開示義務を負わないものとします。
+利用登録の申請に際して虚偽の事項を届け出た場合
+本規約に違反したことがある者からの申請である場合
+その他，当社が利用登録を相当でないと判断した場合
+第3条（ユーザーIDおよびパスワードの管理）
+ユーザーは，自己の責任において，本サービスのユーザーIDおよびパスワードを適切に管理するものとします。
+ユーザーは，いかなる場合にも，ユーザーIDおよびパスワードを第三者に譲渡または貸与し，もしくは第三者と共用することはできません。当社は，ユーザーIDとパスワードの組み合わせが登録情報と一致してログインされた場合には，そのユーザーIDを登録しているユーザー自身による利用とみなします。
+ユーザーID及びパスワードが第三者によって使用されたことによって生じた損害は，当社に故意又は重大な過失がある場合を除き，当社は一切の責任を負わないものとします。
+第4条（利用料金および支払方法）
+ユーザーは，本サービスの有料部分の対価として，当社が別途定め，本ウェブサイトに表示する利用料金を，当社が指定する方法により支払うものとします。
+ユーザーが利用料金の支払を遅滞した場合には，ユーザーは年14．6％の割合による遅延損害金を支払うものとします。
+第5条（禁止事項）
+ユーザーは，本サービスの利用にあたり，以下の行為をしてはなりません。
+
+法令または公序良俗に違反する行為
+犯罪行為に関連する行為
+本サービスの内容等，本サービスに含まれる著作権，商標権ほか知的財産権を侵害する行為
+当社，ほかのユーザー，またはその他第三者のサーバーまたはネットワークの機能を破壊したり，妨害したりする行為
+本サービスによって得られた情報を商業的に利用する行為
+当社のサービスの運営を妨害するおそれのある行為
+不正アクセスをし，またはこれを試みる行為
+他のユーザーに関する個人情報等を収集または蓄積する行為
+不正な目的を持って本サービスを利用する行為
+本サービスの他のユーザーまたはその他の第三者に不利益，損害，不快感を与える行為
+他のユーザーに成りすます行為
+当社が許諾しない本サービス上での宣伝，広告，勧誘，または営業行為
+面識のない異性との出会いを目的とした行為
+当社のサービスに関連して，反社会的勢力に対して直接または間接に利益を供与する行為
+その他，当社が不適切と判断する行為
+第6条（本サービスの提供の停止等）
+当社は，以下のいずれかの事由があると判断した場合，ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
+本サービスにかかるコンピュータシステムの保守点検または更新を行う場合
+地震，落雷，火災，停電または天災などの不可抗力により，本サービスの提供が困難となった場合
+コンピュータまたは通信回線等が事故により停止した場合
+その他，当社が本サービスの提供が困難と判断した場合
+当社は，本サービスの提供の停止または中断により，ユーザーまたは第三者が被ったいかなる不利益または損害についても，一切の責任を負わないものとします。
+第7条（利用制限および登録抹消）
+当社は，ユーザーが以下のいずれかに該当する場合には，事前の通知なく，ユーザーに対して，本サービスの全部もしくは一部の利用を制限し，またはユーザーとしての登録を抹消することができるものとします。
+本規約のいずれかの条項に違反した場合
+登録事項に虚偽の事実があることが判明した場合
+料金等の支払債務の不履行があった場合
+当社からの連絡に対し，一定期間返答がない場合
+本サービスについて，最終の利用から一定期間利用がない場合
+その他，当社が本サービスの利用を適当でないと判断した場合
+当社は，本条に基づき当社が行った行為によりユーザーに生じた損害について，一切の責任を負いません。
+第8条（退会）
+ユーザーは，当社の定める退会手続により，本サービスから退会できるものとします。
+
+第9条（保証の否認および免責事項）
+当社は，本サービスに事実上または法律上の瑕疵（安全性，信頼性，正確性，完全性，有効性，特定の目的への適合性，セキュリティなどに関する欠陥，エラーやバグ，権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。
+当社は，本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし，本サービスに関する当社とユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合，この免責規定は適用されません。
+前項ただし書に定める場合であっても，当社は，当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（当社またはユーザーが損害発生につき予見し，または予見し得た場合を含みます。）について一切の責任を負いません。また，当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は，ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。
+当社は，本サービスに関して，ユーザーと他のユーザーまたは第三者との間において生じた取引，連絡または紛争等について一切責任を負いません。
+第10条（サービス内容の変更等）
+当社は，ユーザーに通知することなく，本サービスの内容を変更しまたは本サービスの提供を中止することができるものとし，これによってユーザーに生じた損害について一切の責任を負いません。
+
+第11条（利用規約の変更）
+当社は，必要と判断した場合には，ユーザーに通知することなくいつでも本規約を変更することができるものとします。なお，本規約の変更後，本サービスの利用を開始した場合には，当該ユーザーは変更後の規約に同意したものとみなします。
+
+第12条（個人情報の取扱い）
+当社は，本サービスの利用によって取得する個人情報については，当社「プライバシーポリシー」に従い適切に取り扱うものとします。
+
+第13条（通知または連絡）
+ユーザーと当社との間の通知または連絡は，当社の定める方法によって行うものとします。当社は,ユーザーから,当社が別途定める方式に従った変更届け出がない限り,現在登録されている連絡先が有効なものとみなして当該連絡先へ通知または連絡を行い,これらは,発信時にユーザーへ到達したものとみなします。
+
+第14条（権利義務の譲渡の禁止）
+ユーザーは，当社の書面による事前の承諾なく，利用契約上の地位または本規約に基づく権利もしくは義務を第三者に譲渡し，または担保に供することはできません。
+
+第15条（準拠法・裁判管轄）
+本規約の解釈にあたっては，日本法を準拠法とします。
+本サービスに関して紛争が生じた場合には，当社の本店所在地を管轄する裁判所を専属的合意管轄とします。
+以上
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center mt-2">
+          <button class="btn btn-outline-primary" type="button" name="button">規約に同意して登録</button>
+        </div>
+        <p class="mt-2">EV SSLは第三者機関により、ドメイン情報確認・申請団体の実在・事業活動の実在が認められた企業のサイトにのみ発行されます。従来のサーバ証明書と比べ、サイト運営会社の実在性をより厳格に確認し認証することで、「安全で安心できる信頼性の高いサイト」であることを明確にします。</p>
+
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="ml-auto mr-auto text-center">
+    <a href="#">▲TOP</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="col-sm-10 text-center ml-auto mr-auto justify-content-center ">
+      <ul class="list-inline ml-auto mr-auto text-center">
+        <li class="list-inline-item">
+          <a href="index.html">トップページ</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="q_a.html">よくある質問</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="iken.html">質問・ご意見板</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="deck.html">デッキ相談室</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="kaitori.html">ネット買取</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="login.html">ログイン</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="regi.html">新規会員登録</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="gaiyou.html">会社情報</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="privacy.html">プライバシーポリシー</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="tokutei.html">特定商取引に基づく表記</a>
+        </li>
+      </ul>
+      <hr>
+  <ul class="list-inline ml-auto mr-auto text-center">
+    <li class="list-inline-item">
+      <a class="nav-link" href="#"><img src="img/crec.png" width="100%" /></a>
+    </li>
+    <li class="list-inline-item">
+        このサイトはSSL暗号化によってお客様情報は保護されています。
+      </li>
+  </ul>
+  <hr>
+<p style="margin-bottom:0">CopyrightⒸAll Rights Reserved</p>
+  </div>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+    <title>CardShop</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+
+    <style media="screen">
+      ul{
+        margin-bottom:0;
+      }
+      .corner_box02 {
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border: 2px solid rgba(0,0,0,.125);
+        filter: brightness(200%);
+      }
+      header{
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+
+      .parenthesis {
+        position: relative;
+        width: 100%;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 2px solid #eeeeee;
+        margin: 10px;
+      }
+      footer{
+        color: #fff;
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+      footer a{
+        color: #fff;
+      }
+      footer hr{
+        background: #fff;
+      }
+      .trapezoid {
+        margin-bottom: -100px;
+        width: 300px;
+        border-top: 100px solid #eeeeee;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 0;
+      }
+      .tran{
+        width: 120px;
+        border-bottom: 40px solid #eeeeee;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 40px;
+      }
+      nav{
+        padding: 0px !important;
+      }
+      .ma{
+        font-size:40px;
+        color: #fff;
+      }
+
+      .hr{
+        margin-top: -10px;
+        background:#fff;
+        margin-bottom: 10px;
+      }
+      .container-fluid{
+        background: #eeeeee;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+      .go{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .ing{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .search{
+        padding-top: 10px;
+      }
+      .col-sm-3 ,.col-sm-7{
+        padding: 0;
+      }
+
+      .no{
+        border: 0px;
+      }
+      body{
+        font-family:monospace;
+      }
+      .form-control{
+        height: 100px;
+      }
+      .cate,.state,.sb{
+        border-radius: 10px;
+      }
+
+    </style>
+    <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light ing">
+        <a class="nav-link ma" href="#"><i>HOME</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="gaiyou.html"><img style="filter: brightness(60%)" src="img/p001.png" width="150px"/></a>
+
+            </li>
+    <li class="nav-item">
+      <a class="nav-link" href="iken.html"><img style="filter: brightness(60%)" src="img/p002.png" width="150px"/></a>
+    </li>
+
+    </ul>
+    <ul class="ml-auto navbar-nav justify-content-center align-items-center">
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/hs.png" width="300px"/>
+      </a>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/p003.png" width="150px"/></a>
+    </li>
+    <li class="nav-item dropdown mr-2">
+      <a class="nav-link" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img style="filter: brightness(60%)" src="img/p004.png" width="150px"/>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">遊戯王</a>
+        <a class="dropdown-item" href="#">デュエルマスターズ</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">ヴァンガード</a>
+      </div>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="kaitori.html"><img style="filter: brightness(60%)" src="img/p005.png" width="150px"/></a>
+    </li>
+
+    </ul>
+  </div>
+</nav>
+
+    </header>
+    <hr class="hr">
+    <div class="container-fluid">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-header text-center">
+              <h1>ポイントガチャ抽選履歴一覧</h1>
+            </div>
+            <div class="ml-4 mt-4">
+              ロート選択 : <select class="" name="">
+                <option value="">コース1</option>
+                <option value="">コース2</option>
+                <option value="">コース3</option>
+              </select><button type="button" name="button">検索</button>
+            </div>
+
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      日付
+                    </div>
+                    <div class="col-sm-1">
+                      都道府県
+                    </div>
+                    <div class="col-sm-5">
+                      ハンドルネーム
+                    </div>
+                    <div class="col-sm-5">
+                      獲得ポイント
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      8/31
+                    </div>
+                    <div class="col-sm-1">
+                      東京都
+                    </div>
+                    <div class="col-sm-5">
+                      〇〇さん
+                    </div>
+                    <div class="col-sm-5">
+                      100Pt
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <footer>
+  <div class="container">
+    <div class="col-sm-10 text-center ml-auto mr-auto justify-content-center ">
+      <ul class="list-inline ml-auto mr-auto text-center">
+        <li class="list-inline-item">
+          <a href="index.html">トップページ</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="q_a.html">よくある質問</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="iken.html">質問・ご意見板</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="deck.html">デッキ相談室</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="kaitori.html">ネット買取</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="login.html">ログイン</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="regi.html">新規会員登録</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="gaiyou.html">会社情報</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="privacy.html">プライバシーポリシー</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="tokutei.html">特定商取引に基づく表記</a>
+        </li>
+      </ul>
+      <hr>
+  <ul class="list-inline ml-auto mr-auto text-center">
+    <li class="list-inline-item">
+      <a class="nav-link" href="#"><img src="img/crec.png" width="100%" /></a>
+    </li>
+    <li class="list-inline-item">
+        このサイトはSSL暗号化によってお客様情報は保護されています。
+      </li>
+  </ul>
+  <hr>
+<p style="margin-bottom:0">CopyrightⒸAll Rights Reserved</p>
+  </div>
+  </div>
+</footer>
+  </body>
+</html>

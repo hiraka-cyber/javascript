@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ajax4 Fetch from PHP mysql</title>
+  </head>
+  <body>
+    <button id="button">Get Users</button>
+    <br><br>
+    <h1>User</h1>
+    <div id="users">
+
+    </div>
+    <h1>Users</h1>
+    <div id="users">
+
+    </div>
+    <script type="text/javascript">
+      document.getElemntById('button').addEventListner('click',loadUsers);
+      fucntion loadUsers(){
+        var xhr = new XMLHttpRequest();
+      xhr.open('GET','users.php',true);
+
+      xhr.onload = function(){
+        if(this.status == 200){
+          var users = JSON.parse(this.responseText);
+
+          var output = '';
+          for(var i in users){
+           output += '<ul>' +
+             '<li>ID: '+users[i].id+'</li>' +
+             '<li>Name: '+users[i].name+'</li>' +
+             '</ul>';
+          }
+            dcoument.getElemntById('users').innerHTML = output;
+        }
+      }
+      xhr.send();
+      }
+    </script>
+  </body>
+</html>

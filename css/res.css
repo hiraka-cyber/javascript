@@ -1,0 +1,268 @@
+/* <link rel="stylesheet" href="sp.css" media="screen and (max-width: 480px)"> */
+*{
+  margin: 0;
+  padding: 0px;
+}
+
+body{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header{
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+
+nav ul li{
+  width: calc(100%/4.3);
+  display: inline-block;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+nav li a{
+  color: #fff;
+}
+
+main{
+  width: 100%;
+}
+
+.container{
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3%;
+}
+
+.box{
+  width: 100%;
+  text-align: center;
+}
+
+.box1{
+  display: inline-block;
+  width: 30%;
+}
+
+.left{
+  text-align: left;
+  background-image: url('../images/ba.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.right{
+  text-align: right;
+  background-image: url('../images/na.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.center{
+  text-align: center;
+  background-image: url('../images/xs.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.left p,.right p,.center p{
+}
+
+.con{
+  text-align: center;
+}
+
+.dis li{
+  text-align: left;
+  width: calc(100%/3.1);
+  display: inline-block;
+}
+
+.fbox{
+  text-align: center;
+}
+
+.ff{
+  text-align: left;
+  width: calc(100%/5.15);
+  display: inline-block;
+}
+
+footer{
+  width: 100%;
+  background-color: #333;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+}
+
+footer p{
+  padding: 1%;
+}
+
+
+/*pc用スタイル*/
+@media only screen and (min-width: 1024px) {
+	div.wrap {
+		display: -webkit-flex;
+		display: flex;
+	}
+	div.side {
+		-webkit-flex-basis: 300px;
+		flex-basis: 300px;
+	}
+	div.contents {
+		-webkit-flex: 1;
+		flex: 1;
+	}
+}
+
+span.menu3bar {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	outline: 1px solid #999;
+	background-color: #999;
+	border: 5px solid #fff;
+	vertical-align: middle;
+/*
+	cursor: pointer;
+*/
+}
+/*
+	span.menu3bar:hover {
+		outline: 1px solid #333;
+		background-color: #333;
+	}
+*/
+	span.menu3bar:before, span.menu3bar:after {
+		position: absolute;
+		content:"";
+		display: block;
+		top: 20%;
+		right: 0;
+		height: 20%;
+		left: 0;
+		background-color: #fff;
+	}
+	span.menu3bar:before {
+		top: 20%;
+	}
+	span.menu3bar:after {
+		top: 60%;
+	}
+
+/*pc用スタイル*/
+@media only screen and (min-width: 1024px) {
+	span.menu3bar {
+		display: none;
+	}
+}
+
+div.menu3bar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+div.menu3bar > ul {
+	position: fixed;
+	top: 0;
+	right: -100%;
+
+	max-width: 70%;
+	max-height: 100%;
+
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.8);
+
+	text-align: left;
+	overflow: auto;
+	font-size: 80%;
+	line-height: 160%;
+
+	-webkit-overflow-scrolling: touch;
+
+	-webkit-transition: right .3s ease-in-out;
+	transition: right .3s ease-in-out;
+}
+	div.menu3bar > ul > li {
+		margin: 0;
+		padding: 10px;
+		border-bottom: 1px solid #eee;
+	}
+
+	div.menu3bar > ul ul {
+		margin-left: 10px;
+	}
+	div.menu3bar > ul ul li {
+		padding: 5px;
+	}
+
+	div.menu3bar_on > ul {
+		right: 0;
+	}
+
+/*pc用スタイル（例）*/
+@media only screen and (min-width: 1024px) {
+	div.menu3bar > ul {
+		position: static;
+		max-width: none;
+		overflow: visible;
+	}
+}
+
+@media screen and (max-width: 1024px){
+  ul li{
+    width: calc(100%/4.3)
+  }
+}
+
+@media screen and(max-width: 896px{
+
+}
+
+@media screen and(max-width: 896px)and(orientation: landscape){
+}
+
+@media screen and(max-width: 480px){
+  ul li{
+    width: calc(100%/2.3)
+  }
+}
+
+@media screen and(max-width: 360px){
+  ul li{
+    width: calc(100%/2.3)
+  }
+}
+
+/* 縦 */
+@media screen and(orientation: portrait){
+
+}
+/* 横 */
+@media screen and(orientation: landscape){
+
+}
+
+@media screen and(max-width: 896px)and(min-width:481px)and(orientation: portrait){
+
+}
+/* smah横 */
+@media screen and(min-width:481px){
+
+}
+/* tablet縦 */
+@media screen and(min-width:769px){
+
+}
+
+@media screen and(min-width: 481px)and(max-width:768px){
+}

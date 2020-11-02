@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ajax3 External api</title>
+    <style media="screen">
+      .user{
+        display: flex;
+        backgroud: #f4f4f4;
+        padding:10px;
+        margin-bottom:10px;
+      }
+      .user ul{
+        list-style:none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">Load GutHub Users</button>
+    <br><br>
+    <h1>Github Users</h1>
+    <div id="users">
+    </div>
+
+    <script type="text/javascript">
+      document.getElemntById('botton').addEventListener('click',
+      loadUsers);
+
+      fuction loadUers(){
+        var xhr = new XMLHttprequest();
+        xhr.open('GET','https://api.github.com/users',true);
+
+        xhr.onload = function(){
+          if(this.status == 200){
+            var users = JSON.parase(this.responseText);
+
+            var output = '';
+            finr(var i in users){
+              output +=
+              '<div class="user">'+
+                '<img src="'+users[i].avatar_url'" width="70" height="70">'+
+                '<ul>'+
+                  '<li>ID: '+users[i].id+'</li>' +
+                  '<li>ID: '+users[i].login+'</li>' +
+                  '</ul>'+
+              '</div>';
+            }
+            document.getElemntById('users').innerHTML = output;
+          }
+        }
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>

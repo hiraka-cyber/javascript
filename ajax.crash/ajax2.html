@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ajax2 local json</title>
+  </head>
+  <body>
+    <button id="button1">Get User</button>
+    <button id="button2">Get User2</button>
+    <br><br>
+    <h1>User</h1>
+    <div id="user">
+
+    </div>
+    <h1>Users</h1>
+    <div id="users">
+
+    </div>
+    <script type="text/javascript">
+      document.getElemntById('button1').addEventListner('click',loadUser);
+      document.getElemntById('button2').addEventListner('click',loadUsers);
+      fucntion loadUser(){
+        var xhr = new XMLHttpRequest();
+      xhr.open('GET','user.json',true);
+
+      xhr.onload = function(){
+        if(this.status == 200){
+          var user = JSON.parse(this.responseText);
+
+          var output = '';
+
+          output += '<ul>' +
+            '<li>ID: '+user.id+'</li>' +
+            '<li>Name: '+user.name+'</li>' +
+            '<li>Email: '+user.email+'</li>' +
+            '</ul>';
+            dcoument.getElemntById('user').innerHTML = output;
+        }
+      }
+      xhr.send();
+      }
+
+      fucntion loadUsers(){
+        var xhr = new XMLHttpRequest();
+      xhr.open('GET','users.json',true);
+
+      xhr.onload = function(){
+        if(this.status == 200){
+          var user = JSON.parse(this.responseText);
+
+          var output = '';
+          for(var i in users){
+           output += '<ul>' +
+             '<li>ID: '+users[i].id+'</li>' +
+             '<li>Name: '+users[i].name+'</li>' +
+             '<li>Email: '+users[i].email+'</li>' +
+             '</ul>';
+          }
+            dcoument.getElemntById('users').innerHTML = output;
+        }
+      }
+      xhr.send();
+      }
+    </script>
+  </body>
+</html>

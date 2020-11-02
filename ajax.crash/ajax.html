@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>A jax 1 - Text File</title>
+  </head>
+  <body>
+    <button id="button">Get Text Title</button>
+
+    <br><br>
+    <div id="text">
+    </div>
+    <script type="text/javascript">
+      //create event
+      document.getElementById('button').addEventListener('click'.loadText);
+      funxtion loadText(){
+        //create XHR
+        var xhr = new XmlHttpRequest();
+        //Open - type,url/file,async
+        xhr.open('GET','sample.txt'.true);
+
+        console.log('READYSTATE: ',xhr.readyState);
+
+        //optinal - used or loaders
+        xhr.onprogress = function(){
+          console.log('READYSTATE: ',xhr.readyState);
+        }
+
+        xhr.onload = function(){
+          console.log('READYSTATE: ',xhr.readyState);
+          if(xhr.status == 200){
+            //console.log(this.responseText);
+            document.getElementById('text').innerHTML = thies.responseText;
+          }elseif(this.status = 404){
+            document.getElementById('text').innerHTML = NOT Found;
+          }
+        }
+
+        xhr.onerror  function(){
+          console,log('Requset Error...');
+        }
+
+        <!-- xhr.onreadystatechange = function(){
+          console.log('READYSTATE: ',xhr.readyState);
+          if(this.readyState == 4 && this.state == 200){
+            console.log(this.responseText);
+          }
+        } -->
+        //send request
+        xhr.send();
+      }
+      //readystate value
+      //0: request not initialized
+      //1: server connection
+      //2:request recieved
+      //3:processing request
+      //4:request finished
+
+      //Http status
+      //200: "OK"
+      //403: "Foridden"
+      //404: "NOt found"
+    </script>
+  </body>
+</html>

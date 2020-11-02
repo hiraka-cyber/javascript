@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>wordpress theme four</title>
+  </head>
+  <style media="screen">
+    .back2,.back3,.back4,.back5{
+      background-image: url('./images/xs.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .yellow{
+      background: #ebb94d;
+      color:#fff;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+    .blue{
+      background: #016ea9;
+    }
+    footer{
+      background: #eeeeee;
+    }
+    footer p{
+      margin-bottom: 0;
+    }
+    .circle{
+      border-radius: 50%;
+      background: #fff;
+      color: #333;
+      margin: 10px;
+    }
+    .white{
+      background: #fff;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #ebb94d;
+    }
+    .red{
+      color:red;
+    }
+    .kk {
+      position: relative;
+      width: 70%;
+      padding: 15px 30px;
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .kk::before,
+    .kk::after {
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .kk::before {
+      top: 0;
+      left: 0;
+      border-top: 3px solid #ebb94d;
+      border-left: 3px solid #ebb94d;
+    }
+    .kk::after {
+      bottom: 0;
+      right: 0;
+      border-bottom: 3px solid #ebb94d;
+      border-right: 3px solid #ebb94d;
+    }
+    .wkk {
+      position: relative;
+      width: 70%;
+      padding: 15px 30px;
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .wkk::before,
+    .wkk::after {
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .wkk::before {
+      top: 0;
+      left: 0;
+      border-top: 3px solid #fff;
+      border-left: 3px solid #fff;
+    }
+    .wkk::after {
+      bottom: 0;
+      right: 0;
+      border-bottom: 3px solid #fff;
+      border-right: 3px solid #fff;
+    }
+    .list-group{
+      padding-bottom: 10px;
+    }
+    .container-fluid,.col-sm-12{
+      padding: 0px;
+    }
+    .col-sm-10 h3{
+      margin-bottom: 0;
+    }
+    .bor{
+      margin-top: -25px;
+      border: 1px solid #fff;
+      padding: 10px;
+    }
+    .bord{
+      margin: -5px -10px 30px -10px;
+      border: 1px solid #333;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse col-sm-10 ml-auto mr-auto" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a href="#contact" class="btn btn-danger my-2 my-sm-0">Contact</a>
+    </form>
+  </div>
+</nav>
+</header>
+<div class="container-fluid">
+  <img src="images/back.png" alt="" width="100%">
+  <div class="relative text-center">
+    <div class="ab">
+      <h3>Programming is</h3>
+      <h3>get started life</h3>
+      <img src="icon.png" alt="" width="300px">
+      <span>Lorem ipsum dolor sit amet, <br>Takeru[takeru]</span>
+    </div>
+  </div>
+  <div class="yellow text-center">
+    <strong>twenty days<br>get skill one thousand doller.</strong><br>
+    <strong class="white red">※price is free.please contact.</strong><br>
+    <a class="btn btn-danger form-control col-sm-8 mt-3" href="#">This click Contact&Session</a><br>
+    <strong>Number six:2020/01/01 ~ 2020/02/01 * end</strong><br>
+    <strong>Number six:2020/01/01 ~ 2020/02/01 * end</strong><br>
+    <strong>Number six:2020/01/01 ~ 2020/02/01 * end</strong>
+    <!-- share button -->
+  </div>
+  <div class="col-sm-12 ml-auto mr-auto text-center mt-3">
+    <h1 class="kk">Getting free time is, enginner realty?</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, </p>
+    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, </p>
+    <p>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea <span class="under">「commodo」</span> consequat. </p>
+    <div class="relative">
+      <img class="ab" src="images/xs.png" alt="" width="100%">
+      <div class="circle">
+        About
+      </div>
+    </div>
+    <div class="cream">
+      <h1 class="kk">Nomad enginner teach program <br>Takeru[takeru]?</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+      <div class="bor_white">
+        <strong>Good enginner get fie skill?</strong>
+        <div class="row ml-auto mr-auto justify-content-center col-sm-10">
+          <div class="col-sm-2">
+            <img src="images/phone.png" alt="" width="100%">
+            started programming
+          </div>
+          <div class="col-sm-2">
+            <img src="images/phone.png" alt="" width="100%">
+            started programming
+          </div>
+          <div class="col-sm-2">
+            <img src="images/phone.png" alt="" width="100%">
+            started programming
+          </div>
+          <div class="col-sm-2">
+            <img src="images/phone.png" alt="" width="100%">
+            started programming
+          </div>
+          <div class="col-sm-2">
+            <img src="images/phone.png" alt="" width="100%">
+            started programming
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="back2">
+      <h1>Not teach started programming skill.</h1>
+      <strong>free study programmin skill.</strong><br>
+      <strong>Takeru is,study important only chatsupport.</strong>
+      <div class="row  ml-auto mr-auto justify-content-center ">
+        <div class="col-sm-2 white">
+          <strong class="yellow">STEP.1</strong><br>
+          <strong>【more one month】</strong><br>
+          <strong>free study programming</strong>
+        </div>
+        <div class="col-sm-2 white">
+          <strong class="yellow">STEP.1</strong><br>
+          <strong>【more one month】</strong><br>
+          <strong>free study programming</strong>
+        </div>
+        <div class="col-sm-2 white">
+          <strong class="yellow">STEP.1</strong><br>
+          <strong>【more one month】</strong><br>
+          <strong>free study programming</strong>
+        </div>
+      </div>
+    </div>
+    <div class="blue text-center ">
+      <strong>Free life is get different,ennginner</strong><br>
+      <strong>freelance important is isn't programming skill.</strong>
+    </div>
+    <h1>Takeru [takeru] study content</h1>
+    <span>Takeru studies,get money important skill enginner.</span>
+    <div class="row col-sm-10 justify-content-center ml-auto mr-auto">
+      <div class="col-sm-3">
+        <img src="images/phone.png" alt="" width="100%">
+        <span>texttext<br>texttext</span>
+      </div>
+      <div class="col-sm-3">
+        <img src="images/phone.png" alt="" width="100%">
+        <span>texttext<br>texttext</span>
+      </div>
+      <div class="col-sm-3">
+        <img src="images/phone.png" alt="" width="100%">
+        <span>texttext<br>texttext</span>
+      </div>
+      <div class="col-sm-3">
+        <img src="images/phone.png" alt="" width="100%">
+        <span>texttext<br>texttext</span>
+      </div>
+      <span>This teach is Takeru.</span>
+    </div>
+    <div class="cream">
+      <h1 class="kk">Lorem ipsum dolor sit amet,<br><span>Takeru three merit</span></h1>
+      <div class="row col-sm-10 justify-content-center ml-auto mr-auto">
+        <div class="col-sm-4">
+          <img src="images/phone.png" alt="" width="100%">
+          <strong class="ye">study fleelance</strong>
+          <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="col-sm-4">
+          <img src="images/phone.png" alt="" width="100%">
+          <strong class="ye">study fleelance</strong>
+          <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="col-sm-4">
+          <img src="images/phone.png" alt="" width="100%">
+          <strong class="ye">study fleelance</strong>
+          <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+      </div>
+        <div class="col-sm-10 ml-auto mr-auto white">
+          <h1>さらに！帰国後のサポート付き！</h1>
+          <h3>make remote worker team recieve up and recieve money!</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="">
+      <h1>member</h1>
+      <strong>Lorem ipsum dolor sit amet, </strong>
+      <div class="row col-sm-8 justify-content-center ml-auto mr-auto">
+      <div class="relative col-sm-5">
+        <div class="ab">
+          <img src="images/phone.png" alt="" width="100%">
+        </div>
+        <div class="bord">
+        <p>freelance</p>
+        <p>name , hiroshi</p>
+        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="relative col-sm-5">
+        <div class="ab">
+          <img src="images/phone.png" alt="" width="100%">
+        </div>
+        <div class="bord">
+        <p>freelance</p>
+        <p>name , hiroshi</p>
+        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="relative col-sm-5">
+        <div class="ab">
+          <img src="images/phone.png" alt="" width="100%">
+        </div>
+        <div class="bord">
+        <p>freelance</p>
+        <p>name , hiroshi</p>
+        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="relative col-sm-5">
+        <div class="ab">
+          <img src="images/phone.png" alt="" width="100%">
+        </div>
+        <div class="bord">
+        <p>freelance</p>
+        <p>name , hiroshi</p>
+        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="yellow text-center">
+      <h1 class="wkk">nomad enginner free money,<br>「reality」?</h1>
+    </div>
+    <div class="text-center">
+      <h1>reality ok!</h1>
+      <strong>Lorem ipsum dolor sit amet</strong>
+      <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <div class="row col-sm-7 justify-content-center ml-auto mr-auto">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+        </div>
+        <div class="col-sm-9">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><a href="#">xxxx yyyyy tttt,Inc ookktt</a></p>
+        </div>
+      </div>
+      <div class="row col-sm-7 justify-content-center ml-auto mr-auto mt-1">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+        </div>
+        <div class="col-sm-9">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><a href="#">xxxx yyyyy tttt,Inc ookktt</a></p>
+        </div>
+      </div>
+      <div class="row col-sm-7 justify-content-center ml-auto mr-auto mt-1">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+        </div>
+        <div class="col-sm-9">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><a href="#">xxxx yyyyy tttt,Inc ookktt</a></p>
+        </div>
+      </div>
+      <div class="back3 col-sm-12 ml-auto mr-auto mt-3">
+        <h1 class="text-center">Study Content,iTakeru[Takeru]</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+        <div class="row justify-content-center ml-auto mr-auto">
+          <div class="col-sm-4">
+            <ul class="list-group">
+              <li class="list-group-item active">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <ul class="list-group">
+              <li class="list-group-item active">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="blue">
+        <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br>labore et dolore magna aliqua.</strong>
+      </div>
+      <h1 class="text-center">Study wave</h1>
+      <div class="row ml-auto mr-auto  justify-content-center">
+        <div class="col-sm-2 circle">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-2 circle">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-2 circle">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-2 circle">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+
+        <div class="col-sm-2 circle">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+      </div>
+      <div class="row col-sm-10 justify-content-center ml-auto mr-auto">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-9">
+          <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit</strong>
+          <strong>testtesttest</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="row col-sm-10 justify-content-center ml-auto mr-auto">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-9">
+          <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit</strong>
+          <strong>testtesttest</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="row col-sm-10 justify-content-center ml-auto mr-auto">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-9">
+          <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit</strong>
+          <strong>testtesttest</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="row col-sm-10 justify-content-center ml-auto mr-auto">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-9">
+          <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit</strong>
+          <strong>testtesttest</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="row col-sm-10 justify-content-center ml-auto mr-auto">
+        <div class="col-sm-3">
+          <img src="images/phone.png" alt="" width="100%">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="col-sm-9">
+          <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit</strong>
+          <strong>testtesttest</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="back4">
+        <div class="col-sm-10 ml-auto mr-auto">
+          <h3>where bangkok?</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <ul>
+            <li>programming freelance</li>
+            <li>average equal japan,bangkok less money</li>
+            <li>afternoon and night enjoy!(motibation up!)</li>
+            <li>live in japanese</li>
+          </ul>
+          <h3>good replace,bangkok only.</h3>
+        </div>
+      </div>
+      <div class="yellow text-center">
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p style="color:#fff">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <span style="color:#333">incididunt ut labore et</span> dolore magna <span style="color:#333">aliqua.</span></p>
+        <h1 class="col-sm-5 justify-content-center ml-auto mr-auto zz">iTakeru『 all free .』service!</h1>
+        <div class="row col-sm-8 justify-content-center ml-auto mr-auto bor">
+          <div class="col-sm-3 circle">
+            <h3>Tokuten1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="col-sm-3 circle">
+            <h3>Tokuten1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="col-sm-3 circle">
+            <h3>Tokuten1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+      </div>
+      <div class="back5">
+        <h1>iTakeru no Borantieer</h1>
+        <p>ここまでみると、実質０円で各種サポートもある、特典が多すぎて逆に怪しい。<br>そう思われるかもしれません。<br>しかし、iSaraが目指すことは異なります。</p>
+        <h1 class="wkk">One month recieve money enginner</h1>
+        <p>最大の価値がこれです。iSaraの卒業生が稼ぎ続けることで、小さな経済が動き始めます。ここに最大の価値があり、この講座はその序章にすぎません。</p>
+      </div>
+      <div class="">
+        <h1>Your message</h1>
+        <strong>Let's enjoy nomad life , get 「all life sukill」</strong>
+        <div class="row justify-content-center col-sm-8 ml-auto mr-auto">
+          <div class="col-sm-2">
+            <img src="images/phone.png" alt="" width="100%">
+          </div>
+            <div class="col-sm-8 text-left">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br><br>・Duis aute irure dolor in reprehenderit in voluptate velit ・esse cillum dolore eu fugiat nulla pariatur. ・Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+      </div>
+      <div class="yellow col-sm-12 ml-auto mr-auto" id="contact">
+        <h1>Contact Form</h1>
+        <strong>plase contact form</strong>
+        <form class=" justify-content-center col-sm-10 ml-auto mr-auto" action="index.html" method="post">
+          <div class="form-group">
+            <input type="text" name="first-name" id="first-name" class="form-control" value="" placeholder="性">
+          </div>
+          <div class="form-group">
+            <input type="text" name="last-name" id="last-name" class="form-control" value="" placeholder="名">
+          </div>
+          <div class="form-group">
+            <input type="text" name="email" id="email" class="form-control" value="" placeholder="メールアドレス">
+          </div>
+          <div class="form-group">
+            <textarea name="question" class="form-control" rows="8" cols="80" placeholder="質問がありましたらこちらへどうぞ"></textarea>
+          </div>
+          <input type="submit" name="send" value="send" class="btn btn-danger form-control">
+        </form>
+      </div>
+      <div class="col-sm-10 ml-auto mr-auto text-left">
+        <h1 class="text-center">many question</h1>
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+  </div>
+</div>
+<footer class="text-center mt-3">
+  <p>Lorem ipsum dolor sit amet,<br>Copyright ⒸiTakeru All Rights Reserved.</p>
+  <!-- sns button -->
+  <p>Designed by Maya Ogi / Developed by Kentaro Koga</p>
+</footer>
+</body>
+</html>

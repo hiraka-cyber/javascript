@@ -1,0 +1,24 @@
+phpmyadmin → database create ajaxtest→name users 2 column→name id type int log/val 11 null index primary
+name name typeeverchal  100
+ajax5.html でdatabase追加phpmyqdminで確認
+ajax4.htmlで呼び出し表示
+
+json crash
+
+jsonlist.com
+{
+ "name":"00",
+ "email": function(){
+     return "00@00.com",
+}
+}
+
+clear→json
+
+results
+出力
+
+node.js install
+
+npm install -g live-server
+live-serverでjson用のサーバー起動

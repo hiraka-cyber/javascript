@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+    <title>CardShop</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+
+    <style media="screen">
+      ul{
+        margin-bottom:0;
+      }
+      .corner_box02 {
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border: 2px solid rgba(0,0,0,.125);
+        filter: brightness(200%);
+      }
+      header{
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+
+      .parenthesis {
+        position: relative;
+        width: 100%;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 2px solid #eeeeee;
+        margin: 10px;
+      }
+      footer{
+        color: #fff;
+        background-image: url('./img/maxresdefault.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+      }
+      footer a{
+        color: #fff;
+      }
+      footer hr{
+        background: #fff;
+      }
+      .trapezoid {
+        margin-bottom: -100px;
+        width: 300px;
+        border-top: 100px solid #eeeeee;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 0;
+      }
+      .tran{
+        width: 120px;
+        border-bottom: 40px solid #eeeeee;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        height: 0;
+        text-align: center;
+        line-height: 40px;
+      }
+      nav{
+        padding: 0px !important;
+      }
+      .ma{
+        font-size:40px;
+        color: #fff;
+      }
+
+      .hr{
+        margin-top: -10px;
+        background:#fff;
+        margin-bottom: 10px;
+      }
+      .container-fluid{
+        background: #eeeeee;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+      .go{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .ing{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .search{
+        padding-top: 10px;
+      }
+      .col-sm-3 ,.col-sm-7{
+        padding: 0;
+      }
+
+      .no{
+        border: 0px;
+      }
+      body{
+        font-family:monospace;
+      }
+      .form-control{
+        height: 100px;
+      }
+      .cate,.state,.sb{
+        border-radius: 10px;
+      }
+
+    </style>
+    <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light ing">
+        <a class="nav-link ma" href="#"><i>HOME</i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="gaiyou.html"><img style="filter: brightness(60%)" src="img/p001.png" width="150px"/></a>
+
+            </li>
+    <li class="nav-item">
+      <a class="nav-link" href="iken.html"><img style="filter: brightness(60%)" src="img/p002.png" width="150px"/></a>
+    </li>
+
+    </ul>
+    <ul class="ml-auto navbar-nav justify-content-center align-items-center">
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/hs.png" width="300px"/>
+      </a>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="#">
+        <img style="filter: brightness(60%)" src="img/p003.png" width="150px"/></a>
+    </li>
+    <li class="nav-item dropdown mr-2">
+      <a class="nav-link" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img style="filter: brightness(60%)" src="img/p004.png" width="150px"/>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">遊戯王</a>
+        <a class="dropdown-item" href="#">デュエルマスターズ</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">ヴァンガード</a>
+      </div>
+    </li>
+    <li class="nav-item mr-2">
+      <a class="nav-link" href="kaitori.html"><img style="filter: brightness(60%)" src="img/p005.png" width="150px"/></a>
+    </li>
+
+    </ul>
+  </div>
+</nav>
+
+    </header>
+    <hr class="hr">
+
+<div class="container-fluid">
+  <div class="row ml-auto mr-auto justify-content-center align-items-center search">
+    <div class="col-sm-8">
+      <table>
+        <tbody>
+          <tr>
+            <th>カード名<br><input type="text" name="" value=""></th>
+            <td>星
+              <select class="" name="">
+                <option value="">選択</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+              </select>~<select class="" name="">
+                <option value="">選択</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+              </select>
+            </td>
+            </tr>
+            <tr>
+            <th>カードの種類<br><select class="" name="">
+              <option value="">選択してください</option>
+              <option value="">遊戯王</option>
+              <option value="">ヴァンガード</option>
+            </select></th>
+            <td>攻撃力<input type="text" name="" value="">～<input type="text" name="" value=""><br>
+            </td>
+            <tr>
+            <th>種族<br><select class="" name="">
+              <option value="">選択してください</option>
+              <option value="">ドラゴン族</option>
+              <option value="">魔法族</option>
+              <option value="">光族</option>
+            </select></th>
+            <td>守備力<input type="text" name="" value="">～<input type="text" name="" value=""></td>
+            </tr>
+            <tr>
+            <th>属性<br><select class="" name="">
+              <option value="">選択</option>
+            </select></th>
+            <td>効果
+              <input type="text" name="" value="">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <button type="button" name="button" class="no">
+        <img style="filter: brightness(200%)" src="img/search.png" alt="" width="120px" class="shadow sb">
+      </button>
+      <a href="#">
+      <img style="filter: brightness(200%)" src="img/cate.png" alt="" width="120px" class="shadow cate">
+    </a>
+    <a href="#">
+      <img style="filter: brightness(200%)" src="img/state.png" alt="" width="120px" class="shadow state">
+    </a>
+    </div>
+  </div>
+  <div class="row">
+
+  <div class="col-sm-3 side mt-5">
+      <img style="filter: brightness(200%)" src="img/van.jpg" class="w-100" height="242px"alt="">
+    <ul class="list-unstyled mt-2">
+      <li class="shadow">
+        <img style="filter: brightness(200%)" src="img/sai.png" class="w-100" alt="">
+      </li>
+    </ul>
+    <ul class="list-unstyled mt-2">
+      <li class="shadow">
+        <img style="filter: brightness(200%)" src="img/si.png" class="w-100" alt="">
+      </li>
+    </ul>
+<ul class="list-group list-unstyled mt-5">
+  <li class="shadow">
+    <img style="filter: brightness(200%)" src="img/sr.png" alt="" class="w-100">
+  </li>
+  <li class="list-group-item shadow"><a href="#">★1位【遊戯王】...</a></li>
+  <li class="list-group-item shadow"><a href="#">★2位【黒の魔術師】...</a></li>
+  <li class="list-group-item shadow"><a href="#">★3位【青眼の白龍】...</a></li>
+  <li class="list-group-item shadow">
+    <button type="button" class="btn btn-outline-danger" name="button">順位をもっと見る</button>
+  </li>
+</ul>
+<ul class="list-group list-unstyled mt-5">
+<li class="shadow">
+  <img style="filter: brightness(200%)" src="img/pr.png" alt="" class="w-100">
+</li>
+<li class="list-group-item shadow">1位　3000Pt<br>○○さん</li>
+<li class="list-group-item shadow">2位　2950Pt<br>○○さん</li>
+<li class="list-group-item shadow">3位　2800Pt<br>○○さん</li>
+<li class="list-group-item shadow">4位　2500Pt<br>○○さん</li>
+<li class="list-group-item shadow">5位　150Pt<br>○○さん</li>
+<li class="list-group-item shadow">
+  <button type="button" class="btn btn-outline-warning" name="button">ガチャ履歴を見る</button>
+  <button type="button" class="btn btn-outline-warning" name="button">Pガチャって？</button>
+</li>
+</ul>
+<ul class="list-group list-unstyled mt-5">
+<li class="shadow">
+  <img style="filter: brightness(200%)" src="img/sc.png" alt="" class="w-100">
+</li>
+<li class="list-group-item shadow">【質問・報告】<br>...</li>
+<li class="list-group-item shadow">【みんなのコメント】<br>...</li>
+<li class="list-group-item shadow">【みんなのコメント】<br>...</li>
+<li class="list-group-item shadow">
+  <button type="button" class="btn btn-outline-success" name="button">最新のコメント一覧へ</button>
+</li>
+</ul>
+</div>
+  <div class="col-sm-9 main mt-3">
+    <div class="card mt-2 shadow">
+      <div class="card-body">
+        <h4>検索条件 : 絞り込み検索 > 遊戯王</h4>
+      </div>
+      <nav aria-label="Page navigation example" class="ml-4">
+  <ul class="pagination align-item-center">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+<div class="row mt-4">
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card shadow">
+      <div class="card-header">
+        遊戯王くじ<br>平均評価 0
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="img/51mQVRNLYiL._AC_SY450_.jpg" alt="" width="100%">
+          </div>
+          <div class="col-sm-9">
+            【魔法カード】
+          </div>
+        </div>
+        <div class="card-header mt-3">
+          もっと見る
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<nav aria-label="Page navigation example" class="py-4 ml-4">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+      </div>
+
+    </div>
+  </div>
+  <div class="ml-auto mr-auto text-center">
+    <a href="#">▲TOP</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="col-sm-10 text-center ml-auto mr-auto justify-content-center ">
+      <ul class="list-inline ml-auto mr-auto text-center">
+        <li class="list-inline-item">
+          <a href="index.html">トップページ</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="q_a.html">よくある質問</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="iken.html">質問・ご意見板</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="deck.html">デッキ相談室</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="kaitori.html">ネット買取</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="login.html">ログイン</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="regi.html">新規会員登録</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="gaiyou.html">会社情報</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="privacy.html">プライバシーポリシー</a>
+        </li>|
+        <li class="list-inline-item">
+          <a href="tokutei.html">特定商取引に基づく表記</a>
+        </li>
+      </ul>
+      <hr>
+  <ul class="list-inline ml-auto mr-auto text-center">
+    <li class="list-inline-item">
+      <a class="nav-link" href="#"><img src="img/crec.png" width="100%" /></a>
+    </li>
+    <li class="list-inline-item">
+        このサイトはSSL暗号化によってお客様情報は保護されています。
+      </li>
+  </ul>
+  <hr>
+<p style="margin-bottom:0">CopyrightⒸAll Rights Reserved</p>
+  </div>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>wordpress theme two</title>
+  </head>
+  <style>
+    .bb li{
+  list-style: none;
+}
+.bb li a,.bb li a:hover{
+  color: #333;
+  text-decoration: none;
+}
+ul{
+  padding: 0;
+}
+.top{
+  padding-top: 10px;
+}
+#main,.one{
+  background: #f8f9fa;
+}
+.img{
+  width: 100%;
+}
+.three-get{
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  padding-top: 10px;
+}
+.four-get{
+  padding: 10px 0 10px 0;
+}
+.one{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p{
+  background: #333;
+  color: #fff;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding: 10px;
+}
+footer{
+  text-align: center;
+  background-color: #f8f9fa;
+}
+.flip-horizontal {
+    transform: scale(-1, 1);
+}
+.relative{
+  position: relative;
+  z-index:99;
+}
+.ab{
+  position: absolute;
+  top: 100px;
+  padding-left: 9%;
+  max-width: 700px;
+  z-index:99;
+}
+.ab2{
+  position: absolute;
+  padding-left: 50%;
+  padding-top: 10px;
+  z-index:99;
+}
+.ab3{
+  position: absolute;
+  padding-right: 50%;
+  padding-top: 10px;
+  z-index:99;
+}
+.slideConts {
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+.slideContsL {
+  transform: translate(-105%, 0);
+}
+.slideContsR {
+  transform: translate(200%, 0);
+}
+.fadein {
+  opacity : 0;
+  transform: translateY(20px);
+  transition: all 1s;
+}
+.slideContsL.show {
+  transform: translate(-0px, 0) !important;
+}
+.slideContsR.show {
+  transform: translate(0px, 0) !important;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  transition: 1s;
+  z-index: 100;
+  top: 0;
+}
+  header.hide {
+    transform: translateY(-100%);
+  }
+
+nav ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: auto;
+      max-width: 500px;
+      margin: 0 auto;
+}
+nav ul li a {
+          color: #fff;
+          text-decoration: none;
+        }
+
+@media screen and (max-width:767px) {
+  .ab,.ab2,.ab3{
+    display: none;
+  }
+}
+  </style>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+      <form class="form-inline my-2 my-lg-0" role="search" method="get" id="searchform" action="#">
+<div>
+  <input class="form-control mr-sm-2" type="text" value="" name="s" id="s" placeholder="Search" aria-label="Search"/>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchsubmit" value="Search">Serach</button>
+</div>
+</form>
+  </div>
+</nav>
+    </header>
+    <div class="relative top">
+      <div class="ab">
+        <h1>Hello World</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="images/globe.png" class="d-block w-100" alt="" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="images/globe.png" class="d-block w-100" alt="" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="images/globe.png" class="d-block w-100" alt="" width="100%">
+    </div>
+  </div>
+</div>
+  <div id="main" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9">
+            <h1 class="text-center">Hello World</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h1 class="text-center">Post</h1>
+        <div class="row">
+                    <div class="col-sm-4 fadein">
+          <strong>post12</strong>
+              <p>
+Lorem ipsum dolor sit amet, consectetur adipisi…<a href="#">Read More</a></p>
+          </div>
+                    <div class="col-sm-4 fadein">
+          <strong>post11</strong>
+              <p>
+Lorem ipsum dolor sit amet, consectetur adipisi…<a href="#">Read More</a></p>
+          </div>
+                    <div class="col-sm-4 fadein">
+          <strong>post10</strong>
+              <p>
+Lorem ipsum dolor sit amet, consectetur adipisi…<a href="#">Read More</a></p>
+          </div>
+                    </div>
+        <div class="row">
+          <div class="col-sm-6 three-get">
+            <strong>title</strong>
+            <p>description</p>
+          </div>
+          <div class="col-sm-6 three-get">
+            <strong>title</strong>
+            <p>description</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 three-get">
+            <strong>title</strong>
+            <p>description</p>
+          </div>
+          <div class="col-sm-6 three-get">
+            <strong>title</strong>
+            <p>description</p>
+          </div>
+        </div>
+        <div class="four slideContsL slideConts">
+          <div class="relative">
+            <div class="ab2">
+              <h1>Hello World</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="four-get">
+            <img src="images/globe.png" class="flip-horizontal"  alt="" width="100%">
+          </div>
+        </div>
+          <div class="row one fadein">
+                        <div class="left col-sm-4">
+              <a href="#"><img width="100%" height="auto" src="images/phone.png" class="img wp-post-image" alt=""/></a>
+            </div>
+            <div class="right col-sm-8">
+              <p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</p>
+            </div>
+                    </div>
+          <div class="four slideContsR slideConts">
+          <div class="relative">
+            <div class="ab3">
+              <h1>Hello World</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="four-get">
+            <img src="images/globe.png" height="auto" width="100%">
+          </div>
+          </div>
+          <div class="row one fadein">
+                         <div class="right col-sm-8">
+               <p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</p>
+             </div>
+            <div class="left col-sm-4">
+              <a href="#"><img width="100%" height="auto" src="images/phone.png" class="img wp-post-image" alt=""/></a>
+            </div>
+                    </div>
+          <div class="four slideContsL slideConts">
+          <div class="relative">
+            <div class="ab2">
+              <h1>Hello World</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="four-get">
+            <img src="images/globe.png" class="flip-horizontal" height="auto" width="100%">
+          </div>
+          </div>
+          <div class="row one fadein">
+                        <div class="left col-sm-4">
+              <a href="#"><img width="100%" height="auto" src="images/phone.png" class="img wp-post-image" alt=""/></a>
+            </div>
+            <div class="right col-sm-8">
+              <p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</p>
+            </div>
+                    </div>
+        <h1 class="text-center">News</h1>
+        <div class="row">
+                    <div class="col-sm-4 fadein">
+            <img width="100%" height="auto" src="images/fire.png" class="img wp-post-image" alt="" />            <strong>News03</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisic…<a href="#">Read More</a></p>
+            </div>
+                      <div class="col-sm-4 fadein">
+            <img width="100%" height="auto" src="images/fire.png" class="img wp-post-image" alt="" />            <strong>News02</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisic…<a href="#">Read More</a></p>
+            </div>
+                      <div class="col-sm-4 fadein">
+            <img width="100%" height="auto" src="images/fire.png" class="img wp-post-image" alt="" />            <strong>News01</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisic…<a href="#">Read More</a></p>
+            </div>
+                      </div>
+      </div>
+            <div id="sidebar" class="col-sm-3">
+						<strong>Mothly Archive:</strong>
+						<ul class="bb">
+								<li><a href='#'>2020年7月</a></li>
+						</ul>
+						<hr>
+						<strong>Categories Archive:</strong>
+						<ul class="bb">
+							 <li class="categories">カテゴリー<ul>	<li class="cat-item cat-item-37"><a href="#">Categroy</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="#">Categroy</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="#">Categroy</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="#">Categroy</a>
+</li>
+</ul></li>						</ul>
+						<hr>
+						<h1 class="text-center">Contact</h1>
+						<form action="/wordpress/index/" method="post">
+							<div>
+								<label for="name">Name</label>
+								<input class="form-control" type="text" name="name" value="" placeholder="please name...">
+							</div>
+							<div>
+								<label for="email">email</label>
+								<input class="form-control" type="text" name="email" value="" placeholder="please email...">
+							</div>
+							<div>
+								<label for="name">content</label>
+								<textarea class="form-control" name="content" rows="8" cols="80" placeholder="please question..."></textarea>
+							</div>
+							<br>
+							<div class="text-center">
+								<button class="btn btn-primary" type="submit" name="button">Send</button>
+							</div>
+						</form>
+		 </div><!-- #content -->
+    </div>
+  </div>
+
+      <footer>
+        <div class="one">
+              <ul class="bb col-sm-3">
+                <strong>title</strong>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+              </ul>
+              <ul class="bb col-sm-3">
+                <strong>title</strong>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+              </ul>
+              <ul class="bb col-sm-3">
+                <strong>title</strong>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+                <li><a href="#">heyhey</a></li>
+              </ul>
+              </div>
+            <p>copyright (c) All Reserved sexmacien</p>
+      </footer>
+      <script type="text/javascript">
+        var slideConts = document.querySelectorAll('.slideConts'); // スライドで表示させる要素の取得
+var slideContsRect = []; // 要素の位置を入れるための配列
+var slideContsTop = []; // 要素の位置を入れるための配列
+var windowY = window.pageYOffset; // ウィンドウのスクロール位置を取得
+var windowH = window.innerHeight; // ウィンドウの高さを取得
+var remainder = 100; // ちょっとはみ出させる部分
+// 要素の位置を取得
+for (var i = 0; i < slideConts.length; i++) {
+  slideContsRect.push(slideConts[i].getBoundingClientRect());
+}
+for (var i = 0; i < slideContsRect.length; i++) {
+  slideContsTop.push(slideContsRect[i].top + windowY);
+}
+// ウィンドウがリサイズされたら、ウィンドウの高さを再取得
+window.addEventListener('resize', function () {
+  windowH = window.innerHeight;
+});
+// スクロールされたら
+window.addEventListener('scroll', function () {
+  // スクロール位置を取得
+  windowY = window.pageYOffset;
+
+  for (var i = 0; i < slideConts.length; i++) {
+    // 要素が画面の下端にかかったら
+    if(windowY > slideContsTop[i] - windowH + remainder) {
+      // .showを付与
+      slideConts[i].classList.add('show');
+    } else {
+      // 逆に.showを削除
+      slideConts[i].classList.remove('show');
+    }
+  }
+});
+jQuery(function($){
+  $(function(){
+    $(window).scroll(function (){
+      $('.fadein').each(function(){
+        var targetElement = $(this).offset().top;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll > targetElement - windowHeight + 200){
+          $(this).css('opacity','1');
+          $(this).css('transform','translateY(0)');
+        }
+      });
+    });
+  });
+  $(function(){
+  var pos = 0;
+  var header = $('header');
+
+  $(window).on('scroll', function(){
+    if($(this).scrollTop() < pos ){
+      //上スクロール時の処理
+      header.removeClass('hide');
+    }else{
+      //下スクロール時の処理
+      header.addClass('hide');
+    }
+    pos = $(this).scrollTop();
+  });
+});
+});
+      </script>
+      </body>
+      </html>

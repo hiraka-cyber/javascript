@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javademo</title>
+  </head>
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Merienda');
+
+body {
+font-family: 'Merienda', cursive;
+}
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.box {
+background: #fff;
+border-radius: 5px;
+padding: 20px;
+text-align: center;
+}
+a {
+color: #0bd;
+}
+  </style>
+  <body>
+
+    <div class="container">
+  <div class="box">
+    <h1>bubbly-bg Demo</h1>
+    <p><a href="https://tipsy.github.io/bubbly-bg/">Website</a></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+
+<script type="text/javascript">
+bubbly({
+  colorStart: '#fff4e6',
+  colorStop: '#ffe9e4',
+  blur: 1,
+  compose: 'source-over',
+  bubbleFunc:() => `hsla(${Math.random() * 50}, 100%, 50%, .3)`
+});
+  bubbly();
+</script>
+  </body>
+</html>
